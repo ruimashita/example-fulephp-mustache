@@ -30,7 +30,20 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('welcome/index'));
+
+        $articles = [];
+        foreach(range(0,3) as $i){
+            $article = new \Model\Article();
+            $article->title = md5(rand());
+            $article->name = 'name' . $i;
+            $articles[] = $article;
+        }
+        $context = [
+            'header'=>'it is header title',
+            'articles' => $articles,
+        ];
+        
+		return Response::forge(View::forge('welcome/index.mustache', $context));
 	}
 
 	/**

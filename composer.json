@@ -24,7 +24,8 @@
         "fuel/orm": "1.7",
         "fuel/parser": "1.7",
         "monolog/monolog": "1.5.*",
-        "fuelphp/upload": "2.0.1"
+        "fuelphp/upload": "2.0.1",
+        "mustache/mustache": "*"
     },
     "repositories": [
         {

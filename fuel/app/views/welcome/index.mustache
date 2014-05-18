@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>FuelPHP Framework</title>
+		<?php echo Asset::css('bootstrap.css'); ?>
+	</head>
+	<body>
+		<h1>{{header}}</h1>
+		{{#bug}}
+		{{/bug}}
+
+		{{#articles}}
+			<article>
+				<h2><strong>{{title}}</strong></h2>
+				<li><a href="{{url}}">{{name}}</a></li>
+			</article>
+		{{/articles}}
+
+		{{#empty}}
+			<p>The list is empty.</p>
+		{{/empty}}
+	</body>
+</html>
