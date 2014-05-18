@@ -1,2 +1,6 @@
 fuel/app/logs/*/*/*
 fuel/app/cache/*/*
+
+/fuel/core/
+/fuel/packages/
+/fuel/vendor/
