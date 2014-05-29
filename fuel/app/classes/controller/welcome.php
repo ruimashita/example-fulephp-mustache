@@ -39,11 +39,15 @@ class Controller_Welcome extends Controller
             $articles[] = $article;
         }
         $context = [
-            'header'=>'it is header title',
+            'title'=>'it is header title',
             'articles' => $articles,
         ];
         
-		return Response::forge(View::forge('welcome/index.mustache', $context));
+
+        $view = View::forge('welcome/index.mustache', $context);
+        // var_dump($view);
+        var_dump($view::parser());
+		return Response::forge();
 	}
 
 	/**
