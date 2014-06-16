@@ -69,7 +69,33 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_hello()
 	{
-		return Response::forge(ViewModel::forge('welcome/hello'));
+ 
+        $articles = [];
+        foreach(range(0,3) as $i){
+            $article = new \Model\Article();
+            $article->title = md5(rand());
+            $article->name = 'name' . $i;
+            $articles[] = $article;
+        }
+
+
+
+        // load the theme template
+        $theme = \Theme::instance();
+
+        // set the page template
+        $theme->set_template('layouts/default');
+
+        $context = [
+            'title'=>'it is wellcome hellow title',
+            'articles' => $articles,
+        ];
+        $theme->get_template()->content = $theme->view('welcome/hello', $context);
+
+        $theme->set_partial('header', 'welcome/hello');
+
+
+        return Response::forge(\Theme::instance()->render());
 	}
 
 	/**
