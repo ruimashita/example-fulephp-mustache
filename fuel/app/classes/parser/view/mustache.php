@@ -22,8 +22,8 @@ class Mustache extends \Parser\View_Mustache
         $parser = parent::parser();
 
         // partilas_loaderを設定
-           $partials_loader = new Mustache_Loader_FilesystemLoader(APPPATH.'views/partials');
-        $parser->setPartialsLoader($partials_loader);
+        //$partials_loader = new Mustache_Loader_FilesystemLoader(APPPATH.'views/partials');
+        //$parser->setPartialsLoader($partials_loader);
 
         static::$_parser = $parser;
         return static::$_parser;

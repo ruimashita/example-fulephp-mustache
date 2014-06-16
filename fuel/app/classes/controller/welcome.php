@@ -39,6 +39,7 @@ class Controller_Welcome extends Controller
             $articles[] = $article;
         }
         $context = [
+            'is_admin' => false,
             'header2' => 'cccccc',
             '_header' => 'cccccc',
             'title'=>'it is header title',
@@ -46,6 +47,9 @@ class Controller_Welcome extends Controller
         ];
 
         $view = View::forge('welcome/index.mustache', $context);
+        $view::parser()->setPartials(
+            array('aHead' => file_get_contents(APPPATH.'/views/partials/_header.mustache'))
+        );
         //var_dump($view);
         //var_dump($view::parser());
   

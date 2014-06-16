@@ -8,7 +8,20 @@
 	<body>
 
 		{{ _header}} 
-		{{> _header }}
+
+
+		{{> foo }}
+
+		{{> aHead }}
+
+		{{# is_admin }}
+			{{> _admin_header }}
+		{{/ is_admin }}
+
+		{{^ is_admin }}
+			{{> _header }}
+		{{/ is_admin }}
+
 
 		{{#bug}}
 		{{/bug}}
