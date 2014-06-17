@@ -86,11 +86,31 @@ class Controller_Welcome extends Controller
         // set the page template
         $theme->set_template('layouts/default');
 
+        #$form = Form::forge();
+
+        $form = Fieldset::forge();
+
+        $form->add('name', '名前')
+			->add_rule('trim')
+			->add_rule('required')
+			->add_rule('no_controll')
+			->add_rule('max_length', 1);
+
+        $form->repopulate();
+        // $form->build('/wellcom/hello');
+
+        //var_dump($form->field());
         $context = [
             'title'=>'it is wellcome hellow title',
             'articles' => $articles,
+            'my_form' => $form,
+            'form' => [
+                'open' => $form->form()->open(),
+                'fields' => $form->field()
+            ],
+        
         ];
-        $theme->get_template()->content = $theme->view('welcome/hello', $context);
+        $theme->get_template()->content = $theme->view('welcome/hello', $context, false);
 
         $theme->set_partial('header', 'welcome/hello');
 
