@@ -50,6 +50,8 @@ class Controller_Welcome extends Controller
         $view::parser()->setPartials(
             array('aHead' => file_get_contents(APPPATH.'/views/partials/_header.mustache'))
         );
+
+
         //var_dump($view);
         //var_dump($view::parser());
   
@@ -113,6 +115,14 @@ class Controller_Welcome extends Controller
         $theme->get_template()->content = $theme->view('welcome/hello', $context, false);
 
         $theme->set_partial('header', 'welcome/hello');
+
+
+        var_dump($theme->asset->css('header.css'));
+        echo $theme->asset_path('img/test.png');
+        var_dump(Asset::css('header.css'));
+        var_dump(Asset::css(array('header.css', 'footer.css'), array(), null, false));
+        //echo Asset::img('icons/myicon.png');
+
 
 
         return Response::forge(\Theme::instance()->render());

@@ -4,7 +4,7 @@ SOURCE_DIR = 'fuel'
 ignore %r{^#{SOURCE_DIR}/core/}, %r{^#{SOURCE_DIR}/vendor/}, %r{^#{SOURCE_DIR}/packages/},  %r{^#{SOURCE_DIR}/app/logs/}
 
 guard 'livereload', :apply_js_live => false do
-  watch(%r{^#{SOURCE_DIR}/(?!app/tests).+\.(css|js|php)$})
+  watch(%r{^#{SOURCE_DIR}/(?!app/tests).+\.(css|js|php|mustache)$})
 end
 
 
